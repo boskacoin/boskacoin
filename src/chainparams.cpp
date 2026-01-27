@@ -191,7 +191,8 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xc5da1bc5a3a341a5df5779cc2d44c9f48ce95817df14436feb653891f1cce264"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("cavesystem.net", "cavesystem.net")); // senasgr x unstable
+        vSeeds.push_back(CDNSSeedData("cavesystem.net", "cavesystem.net")); // by Novixx Systems
+        vSeeds.push_back(CDNSSeedData("pyrrhocorisapterus.org", "pyrrhocorisapterus.org")); // by Imusing (creator of BoskaCoin)
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,12);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,8);
