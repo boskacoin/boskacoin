@@ -37,3 +37,20 @@ BoskaCoin is a cryptocurrency forked from LebowskisCoin, which itself is a fork 
     ```bash
     ./src/lebowskiscoind # needs to be changed to boskacoind later
     ```
+
+## Running A Node
+To run a node, you need to have enough disk space and bandwidth.
+
+You can run the BoskaCoin daemon with the following command:
+```bash
+./src/lebowskiscoind -daemon
+```
+
+And to make sure the node is listening for connections, you can use `-listen` flag:
+```bash
+./src/lebowskiscoind -daemon -listen=1
+```
+
+It is defaulted to 1, but you can explicitly set it just in case.
+
+or on Windows, run `boskacoind.exe -daemon -listen=1` from the command prompt.
