@@ -104,7 +104,7 @@ namespace boost {
 
 using namespace std;
 
-const char * const BITCOIN_CONF_FILENAME = "lebowskiscoin.conf";
+const char * const BITCOIN_CONF_FILENAME = "boskacoin.conf";
 const char * const BITCOIN_PID_FILENAME = "lebowskiscoind.pid";
 
 CCriticalSection cs_args;
