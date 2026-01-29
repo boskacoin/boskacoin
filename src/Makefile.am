@@ -66,11 +66,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += lebowskiscoind
+  bin_PROGRAMS += boskacoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += lebowskiscoin-cli lebowskiscoin-tx
+  bin_PROGRAMS += boskacoin-cli boskacoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -372,16 +372,16 @@ nodist_libdogecoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-lebowskiscoind_SOURCES = bitcoind.cpp
-lebowskiscoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-lebowskiscoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lebowskiscoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+boskacoind_SOURCES = bitcoind.cpp
+boskacoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+boskacoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+boskacoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lebowskiscoind_SOURCES += bitcoind-res.rc
+boskacoind_SOURCES += bitcoind-res.rc
 endif
 
-lebowskiscoind_LDADD = \
+boskacoind_LDADD = \
   $(LIBDOGECOIN_SERVER) \
   $(LIBDOGECOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -394,38 +394,38 @@ lebowskiscoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-lebowskiscoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+boskacoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-lebowskiscoin_cli_SOURCES = bitcoin-cli.cpp
-lebowskiscoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-lebowskiscoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lebowskiscoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+boskacoin_cli_SOURCES = bitcoin-cli.cpp
+boskacoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+boskacoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+boskacoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lebowskiscoin_cli_SOURCES += bitcoin-cli-res.rc
+boskacoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-lebowskiscoin_cli_LDADD = \
+boskacoin_cli_LDADD = \
   $(LIBDOGECOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBDOGECOIN_UTIL) \
   $(LIBDOGECOIN_CRYPTO)
 
-lebowskiscoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+boskacoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-lebowskiscoin_tx_SOURCES = bitcoin-tx.cpp
-lebowskiscoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-lebowskiscoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lebowskiscoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+boskacoin_tx_SOURCES = bitcoin-tx.cpp
+boskacoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+boskacoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+boskacoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lebowskiscoin_tx_SOURCES += bitcoin-tx-res.rc
+boskacoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-lebowskiscoin_tx_LDADD = \
+boskacoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBDOGECOIN_COMMON) \
   $(LIBDOGECOIN_UTIL) \
@@ -433,7 +433,7 @@ lebowskiscoin_tx_LDADD = \
   $(LIBDOGECOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-lebowskiscoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+boskacoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

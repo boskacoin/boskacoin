@@ -120,12 +120,12 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "lebowskiscoin:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "boskacoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in lebowskiscoind anymore. Use the lebowskiscoin-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in boskacoind anymore. Use the boskacoin-cli utility instead.\n");
             exit(EXIT_FAILURE);
         }
 
