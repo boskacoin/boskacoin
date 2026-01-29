@@ -9,6 +9,8 @@ BoskaCoin [BOSKA]
 
 BoskaCoin is a cryptocurrency forked from LebowskisCoin, which itself is a fork of Litecoin, and ultimately Bitcoin. It aims to be a fun and accessible digital currency for everyday use.
 
+Website: [boskacoin.org](https://boskacoin.org)
+
 </div>
 
 ## Features
