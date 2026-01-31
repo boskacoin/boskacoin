@@ -193,6 +193,7 @@ public:
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.push_back(CDNSSeedData("cavesystem.net", "cavesystem.net")); // by Novixx Systems
         vSeeds.push_back(CDNSSeedData("pyrrhocorisapterus.org", "pyrrhocorisapterus.org")); // by Imusing (creator of BoskaCoin)
+        vSeeds.push_back(CDNSSeedData("seed.boskacoin.org", "seed.boskacoin.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,12);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,8);
@@ -358,8 +359,8 @@ public:
         auxpowConsensus.hashGenesisBlock = consensus.hashGenesisBlock;
 
         // // print hashes
-        std::cout << "Testnet Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-        std::cout << "Testnet Merkle Root: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        // std::cout << "Testnet Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+        // std::cout << "Testnet Merkle Root: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
         assert(consensus.hashGenesisBlock == uint256S("0xa4b307b180c90221f1688d4f1fd03ff5970394098e6183525b0bf9a94efce25e"));
         assert(genesis.hashMerkleRoot == uint256S("0xc5da1bc5a3a341a5df5779cc2d44c9f48ce95817df14436feb653891f1cce264"));
@@ -521,8 +522,8 @@ public:
         auxpowConsensus.hashGenesisBlock = consensus.hashGenesisBlock;
 
         // // print hashes
-        std::cout << "Regtest Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-        std::cout << "Regtest Merkle Root: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        // std::cout << "Regtest Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+        // std::cout << "Regtest Merkle Root: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
         assert(consensus.hashGenesisBlock == uint256S("0xa4b307b180c90221f1688d4f1fd03ff5970394098e6183525b0bf9a94efce25e"));
         assert(genesis.hashMerkleRoot == uint256S("0xc5da1bc5a3a341a5df5779cc2d44c9f48ce95817df14436feb653891f1cce264"));
