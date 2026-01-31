@@ -77,4 +77,4 @@ Or you can donate directly with BoskaCoin, but since it's a newer coin, BOSKA do
 
 - BoskaCoin (BOSKA): 66YjAwvn1yCzfP59co9mg4WE1xiSH8Mwox (Imusing/GoombaProgrammer (lead developer))
 
-\* All exchanges I found so far require a liquidity deposit (and a fee in USDT) to get listed, and while I cannot guarantee listings, having liquidity helps a lot with that process.
+\* Most exchanges I found so far require a liquidity deposit (and a fee in USDT) to get listed.
