@@ -2225,12 +2225,12 @@ void static UpdateTip(CBlockIndex *pindexNew, const CChainParams& chainParams) {
             ThresholdState state = checker.GetStateFor(pindex, chainParams.GetConsensus(pindex->nHeight), warningcache[bit]);
             if (state == THRESHOLD_ACTIVE || state == THRESHOLD_LOCKED_IN) {
                 if (state == THRESHOLD_ACTIVE) {
-                    std::string strWarning = strprintf(_("Warning: unknown new rules activated (versionbit %i)"), bit);
-                    SetMiscWarning(strWarning);
-                    if (!fWarned) {
-                        AlertNotify(strWarning);
-                        fWarned = true;
-                    }
+                    // std::string strWarning = strprintf(_("Warning: unknown new rules activated (versionbit %i)"), bit);
+                    // // SetMiscWarning(strWarning);
+                    // // if (!fWarned) {
+                    // //     AlertNotify(strWarning);
+                    // //     fWarned = true;
+                    // // }
                 } else {
                     warningMessages.push_back(strprintf("unknown new rules are about to activate (versionbit %i)", bit));
                 }
