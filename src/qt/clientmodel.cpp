@@ -139,13 +139,19 @@ size_t ClientModel::getMempoolDynamicUsage() const
 
 double ClientModel::getVerificationProgress(const CBlockIndex *tipIn) const
 {
-    CBlockIndex *tip = const_cast<CBlockIndex *>(tipIn);
-    if (!tip)
-    {
-        LOCK(cs_main);
-        tip = chainActive.Tip();
+    if (tipIn) {
+        int height = tipIn->nHeight;
+        int bestHeaderHeight = getHeaderTipHeight();
+        if (bestHeaderHeight > 0) {
+            return (double)height / bestHeaderHeight;
+        }
+    } else {
+        int bestHeaderHeight = getHeaderTipHeight();
+        if (bestHeaderHeight > 0) {
+            int currentHeight = getNumBlocks();
+            return (double)currentHeight / bestHeaderHeight;    
+        }
     }
-    return GuessVerificationProgress(Params().TxData(), tip);
 }
 
 void ClientModel::updateTimer()

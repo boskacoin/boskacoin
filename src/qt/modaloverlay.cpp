@@ -83,24 +83,26 @@ void ModalOverlay::tipUpdate(int count, const QDateTime& blockDate, double nVeri
     blockProcessTime.push_front(qMakePair(currentDate.toMSecsSinceEpoch(), nVerificationProgress));
 
     // show progress speed if we have more then one sample
-    if (blockProcessTime.size() >= 2)
-    {
-        double progressStart = blockProcessTime[0].second;
+    if (blockProcessTime.size() >= 2) {
         double progressDelta = 0;
         double progressPerHour = 0;
         qint64 timeDelta = 0;
         qint64 remainingMSecs = 0;
         double remainingProgress = 1.0 - nVerificationProgress;
-        for (int i = 1; i < blockProcessTime.size(); i++)
-        {
+        for (int i = 1; i < blockProcessTime.size(); i++) {
             QPair<qint64, double> sample = blockProcessTime[i];
-
-            // take first sample after 500 seconds or last available one
-            if (sample.first < (currentDate.toMSecsSinceEpoch() - 500 * 1000) || i == blockProcessTime.size() - 1) {
-                progressDelta = progressStart-sample.second;
+            if (sample.second <= nVerificationProgress) {
+                progressDelta = nVerificationProgress - sample.second;
                 timeDelta = blockProcessTime[0].first - sample.first;
-                progressPerHour = progressDelta/(double)timeDelta*1000*3600;
-                remainingMSecs = remainingProgress / progressDelta * timeDelta;
+                if (timeDelta > 0) {
+                    progressPerHour = progressDelta / timeDelta * 3600 * 1000;
+                    if (progressPerHour > 0) {
+                        remainingMSecs = remainingProgress / progressPerHour * 3600 * 1000;
+                    }
+                    else {
+                        remainingMSecs = -1;
+                    }
+                }
                 break;
             }
         }

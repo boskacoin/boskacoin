@@ -786,15 +786,15 @@ void BitcoinGUI::updateHeadersSyncProgressLabel()
 
 void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool header)
 {
+    if (!clientModel)
+        return;
     if (modalOverlay)
     {
         if (header)
             modalOverlay->setKnownBestHeight(count, blockDate);
         else
-            modalOverlay->tipUpdate(count, blockDate, nVerificationProgress);
+            modalOverlay->tipUpdate(count, blockDate, clientModel->getVerificationProgress(NULL));
     }
-    if (!clientModel)
-        return;
 
     // Prevent orphan statusbar messages (e.g. hover Quit in main menu, wait until chain-sync starts -> garbled text)
     statusBar()->clearMessage();
@@ -859,7 +859,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
         progressBarLabel->setVisible(true);
         progressBar->setFormat(tr("%1 behind").arg(timeBehindText));
         progressBar->setMaximum(1000000000);
-        progressBar->setValue(nVerificationProgress * 1000000000.0 + 0.5);
+        progressBar->setValue(clientModel->getVerificationProgress(NULL) * 1000000000.0 + 0.5);
         progressBar->setVisible(true);
 
         tooltip = tr("Catching up...") + QString("<br>") + tooltip;
