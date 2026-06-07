@@ -132,7 +132,7 @@ public:
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0xbf7c;
-        consensus.fStrictChainId = true;  // we set this to false as block is nonAuxPow
+        consensus.fStrictChainId = false;  // we set this to false as block is nonAuxPow
         consensus.nBlockAfterAuxpowRewardThreshold = 5;
         consensus.nAuxpowStartHeight = 24000;
 
